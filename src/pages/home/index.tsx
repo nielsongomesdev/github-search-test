@@ -2,9 +2,10 @@ import { useState, type SyntheticEvent } from "react";
 import { Box, Heading, Input, Button, Flex, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { LanguageToggle } from "../../components/LanguageToggle";
 
 export const Home = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
@@ -16,11 +17,6 @@ export const Home = () => {
     }
   };
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "pt" ? "en" : "pt";
-    i18n.changeLanguage(newLang);
-  };
-
   return (
     <Flex
       height="100vh"
@@ -30,16 +26,7 @@ export const Home = () => {
       bg="white"
     >
       <Box position="absolute" top={4} right={4}>
-        <Button
-          size="sm"
-          onClick={toggleLanguage}
-          variant="outline"
-          borderColor="border.gray"
-          bg="white"
-          fontWeight="500"
-        >
-          {i18n.language === "pt" ? "EN" : "PT"}
-        </Button>
+        <LanguageToggle />
       </Box>
 
       <Box maxW="800px" w="100%" px={4} textAlign="center">
