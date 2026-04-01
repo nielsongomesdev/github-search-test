@@ -22,12 +22,13 @@ export const Header = () => {
     <Box as="header" w="100%" h="88px" bg="white" boxShadow="sm">
       <Flex maxW="1200px" mx="auto" h="100%" alignItems="center" px={4} gap={8}>
         <Heading
-          fontSize="32px"
+          fontSize={{ base: "16px", md: "32px" }}
           fontWeight="500"
           cursor="pointer"
           onClick={() => navigate("/")}
           w={{ base: "auto", md: "280px" }}
           flexShrink={0}
+          lineHeight="1.2"
         >
           <Text as="span" color="brand.blue">
             {t("home_title_1")}{" "}
